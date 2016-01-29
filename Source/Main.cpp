@@ -199,7 +199,16 @@ public:
 							plugInst->prepareToPlay(sampleRate, totalSizeInSamples);
 							plugInst->processBlock(buffer, midiMessages);
 
-							File outputFile("C:\\Users\\GeorgeKrueger\\Documents\\GitHub\\soundserver\\out.wav");
+							/*File txtOutFile("C:\\Users\\GeorgeKrueger\\Documents\\GitHub\\soundserver2\\out.txt");
+							FileOutputStream* txtOutStream = txtOutFile.createOutputStream();
+							for (int j = 0; j < 44100; ++j)
+							{
+								float sample = buffer.getSample(0, j);
+								txtOutStream->writeFloat(sample);
+								txtOutStream->writeText(" ", true, false);
+							}*/
+
+							File outputFile("C:\\Users\\GeorgeKrueger\\Documents\\GitHub\\soundserver2\\out.wav");
 							FileOutputStream* fileOutputStream = outputFile.createOutputStream();
 							WavAudioFormat wavFormat;
 							StringPairArray metadataValues;
