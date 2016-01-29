@@ -7,3 +7,4 @@ Debug/
 *.suo
 Builds/VisualStudio2005/Backup/soundserver.sln
 Builds/VisualStudio2005/UpgradeLog.htm
+*.wav
