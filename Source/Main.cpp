@@ -209,10 +209,13 @@ public:
 							}*/
 
 							File outputFile("C:\\Users\\GeorgeKrueger\\Documents\\GitHub\\soundserver2\\out.wav");
+							if (outputFile.exists()) {
+								outputFile.deleteFile();
+							}
 							FileOutputStream* fileOutputStream = outputFile.createOutputStream();
 							WavAudioFormat wavFormat;
 							StringPairArray metadataValues;
-							AudioFormatWriter* wavFormatWriter = wavFormat.createWriterFor(
+							juce::AudioFormatWriter* wavFormatWriter = wavFormat.createWriterFor(
 								fileOutputStream, sampleRate, 2, 16, metadataValues, 0);
 							bool writeAudioDataRet = wavFormatWriter->writeFromAudioSampleBuffer(buffer, 0, buffer.getNumSamples());
 							wavFormatWriter->flush();
@@ -223,6 +226,7 @@ public:
 							log(msg);
 
 							delete wavFormatWriter;
+							delete plugInst;
 						}
 						else {
 							msg.clear();
